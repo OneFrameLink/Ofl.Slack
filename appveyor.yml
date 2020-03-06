@@ -24,12 +24,18 @@ branches:
 skip_tags: true
 
 #--------------------------------------------------
+# Do not patch assembly info, gitversion will handle
+# this
+#--------------------------------------------------
+assembly_info:
+  patch: false
+
+#--------------------------------------------------
 # After cloning repository
 #--------------------------------------------------
 install:
   - git submodule init
   - git submodule update
-  - gitversion
 
 #--------------------------------------------------
 # Build configuration
@@ -51,6 +57,8 @@ build:
 before_build:
 # Restore
   - dotnet restore
+# Run gitversion
+  - ps: gitversion /l console /output buildserver /updateAssemblyInfo
     
 #--------------------------------------------------
 # Testing
