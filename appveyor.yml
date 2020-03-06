@@ -13,14 +13,6 @@ environment:
     secure: yAZjzbVhtfeKof5pGJ/N65IjSffBIJoX5MZIpqbtHkc=
 
 #--------------------------------------------------
-# Note that the following is custom to this project and
-# needs to be replicated if this file is copy and pasted
-# from Ofl._shared.
-#--------------------------------------------------
-  GOOGLE__APIKEY:
-    secure: WEbkgGjWbtwHIf4dQ9Wyw+Gq+OgZyqLGp89YisTO5nvWoMykysA+CbMlDZCMO/oG
-
-#--------------------------------------------------
 # Branch whitelist
 #--------------------------------------------------
 branches:
@@ -37,6 +29,7 @@ skip_tags: true
 install:
   - git submodule init
   - git submodule update
+  - gitversion
 
 #--------------------------------------------------
 # Build configuration
@@ -48,8 +41,8 @@ configuration: Release
 #--------------------------------------------------
 build:
   # Publish symbols, as per: https://www.appveyor.com/docs/build-phase/#packaging-symbols
-  publish_nuget: true
-  publish_nuget_symbols: true
+  publish_nuget: false
+  publish_nuget_symbols: false
   use_snupkg_format: true
 
 #--------------------------------------------------
