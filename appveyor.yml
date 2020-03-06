@@ -55,6 +55,13 @@ build:
 # Build hooks - before
 #--------------------------------------------------
 before_build:
+# Patch version in directory.build.props
+  - ps: $temp_path = (Get-Item src\directory.build.props).FullName
+  - ps: $temp_dbp = [xml](Get-Content $temp_path)
+  - ps: $temp_path = (Get-Item GitVersion.yml).FullName
+  - ps: $gvyml = [json](Get-Content $temp_path)
+  - ps: $env:APPVEYOR_BUILD_VERSION = $temp_csproj.Project.PropertyGroup.Version
+  - ps: Write-Host "Build version set to - $env:APPVEYOR_BUILD_VERSION"
 # Restore
   - dotnet restore
 # Run gitversion
