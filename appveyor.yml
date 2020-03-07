@@ -55,23 +55,21 @@ build:
 # Build hooks - before
 #--------------------------------------------------
 before_build:
-# Install module for parsing yaml in powershell
-  - ps: Install-Module powershell-yaml -Scope CurrentUser -Force
-
 # Patch version from directory.build.props into GitVersion.yml
+# Get the fill filename and open.
   - ps: $temp_path = (Get-Item src\directory.build.props).FullName
   - ps: $temp_dbp = [xml](Get-Content $temp_path)
 
+# Extract the version and write it out.
   - ps: $env:ofl_version = $temp_dbp.Project.PropertyGroup.Version
   - ps: Write-Host "Version to feed to GitVersion.yml - $env:ofl_version"
 
-  - ps: Import-Module powershell-yaml
-  - ps: $yaml = Get-Content GitVersion.yml | ConvertFrom-Yaml 
-  - ps: $yaml[0]["next-version"] = $env:ofl_version
-  - ps: $yaml | ConvertTo-Yaml | Set-Content -Path GitVersion.yml
-  - ps: $yaml
-  - ps: $yaml = Get-Content GitVersion.yml
-  - ps: Write-Host $yaml
+# Create an array, insert the new version, then add the content of the existing
+# file.
+  - ps: $yaml = @()
+  - ps: $yaml += "- next-version: ($env:ofl_version)"
+  - ps: $yaml += Get-Content GitVersion.yml
+  - ps: $yaml | Out-File "GitVersion.yml"
 
 # Restore
   - dotnet restore

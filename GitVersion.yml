@@ -1,5 +1,6 @@
-next-version: 0.0.0
-branches: {}
-ignore:
-  sha: []
-merge-message-formats: {}
+- next-version: 0.3.0
+- branches: {}
+- ignore: 
+- sha: []
+- merge-message-formats: {}
+
