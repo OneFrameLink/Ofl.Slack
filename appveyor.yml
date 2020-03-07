@@ -39,7 +39,7 @@ install:
 #--------------------------------------------------
 build:
   # Publish symbols, as per: https://www.appveyor.com/docs/build-phase/#packaging-symbols
-  publish_nuget: true
+  publish_nuget: false
   publish_nuget_symbols: true
   use_snupkg_format: true
 
@@ -98,6 +98,19 @@ deploy:
     secure: WuVzz7rQXKtG8gCcxuBARSPLoFyAed/9ymDhqOPwCSbigHBDRCHPmVv7LKHf8Q5B
   skip_symbols: false
   
+#--------------------------------------------------
+# Build hooks - on_success
+#
+# Tags the repository in GitHub with the release version.
+#--------------------------------------------------
+on_success:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:GITHUB_PERSONAL_ACCESS_TOKEN):x-oauth-basic@github.com`n"
+  - git config --global user.email "%GIT_CONFIG_USER_EMAIL%"
+  - git config --global user.name "One Frame Link"
+  - git tag "v%APPVEYOR_BUILD_VERSION%"
+  - git push origin "v%APPVEYOR_BUILD_VERSION%"
+
 #--------------------------------------------------
 # Notifications
 #--------------------------------------------------

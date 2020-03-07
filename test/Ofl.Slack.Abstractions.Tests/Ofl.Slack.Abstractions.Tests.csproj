@@ -4,6 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <!-- Note: This is currently required so Appveyor can detect the test project. -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\Ofl.Slack.Abstractions\Ofl.Slack.Abstractions.csproj" />
   </ItemGroup>
