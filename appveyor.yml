@@ -67,7 +67,7 @@ before_build:
   - dotnet restore
 
 # Run gitversion
-  - ps: gitversion /l console /output buildserver /updateAssemblyInfo
+  - ps: gitversion /l console /output buildserver
     
 #--------------------------------------------------
 # Testing

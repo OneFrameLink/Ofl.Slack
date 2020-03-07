@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Description>Abstractions for functionality for working with Slack APIs.</Description>
+    <AssemblyName>Ofl.Slack.Abstractions</AssemblyName>
+    <PackageId>Ofl.Slack.Abstractions</PackageId>
   </PropertyGroup>
 
 </Project>

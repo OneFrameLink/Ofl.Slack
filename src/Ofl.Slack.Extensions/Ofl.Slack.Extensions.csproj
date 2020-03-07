@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Description>Extensions for implemenations for functionality when working with Slack APIs.</Description>
+    <AssemblyName>Ofl.Slack.Extensions</AssemblyName>
+    <PackageId>Ofl.Slack.Extensions</PackageId>
   </PropertyGroup>
 
 </Project>
