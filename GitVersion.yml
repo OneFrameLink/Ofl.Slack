@@ -1,5 +1,4 @@
-- branches: {}
-- ignore: 
-- sha: []
-- merge-message-formats: {}
-
+branches: {}
+ignore:
+  sha: []
+merge-message-formats: {}
