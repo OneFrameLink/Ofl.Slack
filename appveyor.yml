@@ -55,13 +55,18 @@ build:
 # Build hooks - before
 #--------------------------------------------------
 before_build:
+# Install yq for parsing yaml.
+  - sudo add-apt-repository ppa:rmescandon/yq
+  - sudo apt update
+  - sudo apt install yq -y
+
 # Patch version in directory.build.props
   - ps: $temp_path = (Get-Item src\directory.build.props).FullName
   - ps: $temp_dbp = [xml](Get-Content $temp_path)
-  - ps: $temp_path = (Get-Item GitVersion.yml).FullName
-  - ps: $gvyml = [json](Get-Content $temp_path)
-  - ps: $env:APPVEYOR_BUILD_VERSION = $temp_csproj.Project.PropertyGroup.Version
-  - ps: Write-Host "Build version set to - $env:APPVEYOR_BUILD_VERSION"
+  - ps: $temp_json = Get-Content t-Item GitVersion.yml).FullName -raw | ConvertFrom-Json
+$a.update | % {if($_.name -eq 'test1'){$_.version=3.0}}
+$a | ConvertTo-Json -depth 32| set-content 'D:\temp\mytestBis.json'
+
 # Restore
   - dotnet restore
 # Run gitversion
