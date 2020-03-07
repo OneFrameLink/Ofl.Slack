@@ -55,6 +55,9 @@ build:
 # Build hooks - before
 #--------------------------------------------------
 before_build:
+# Install GitVersion
+  - sh: choco install GitVersion.Portable
+
 # Install yq for parsing yaml.
   - sh: sudo add-apt-repository ppa:rmescandon/yq
   - sh: sudo apt update
