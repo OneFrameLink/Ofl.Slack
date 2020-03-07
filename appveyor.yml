@@ -1,7 +1,7 @@
 #--------------------------------------------------
 # Build worker image (VM template)
 #--------------------------------------------------
-image: Visual Studio 2019
+image: Ubuntu
 
 #--------------------------------------------------
 # Environment
@@ -72,7 +72,7 @@ before_build:
   - dotnet restore
 # Run gitversion
   - ps: gitversion /l console /output buildserver /updateAssemblyInfo
-  - sh: exit 0
+  - ps: Exit-AppveyorBuild
     
 #--------------------------------------------------
 # Testing
