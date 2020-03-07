@@ -67,10 +67,9 @@ before_build:
 # Create an array, insert the new version, then add the content of the existing
 # file.
   - ps: $yaml = @()
-  - ps: '$yaml += "\- next-version: $env:ofl_version"'
+  - ps: '$yaml += "- next-version: $env:ofl_version"'
   - ps: $yaml += Get-Content GitVersion.yml
   - ps: $yaml | Out-File "GitVersion.yml"
-  - more GitVersion.yml
 
 # Restore
   - dotnet restore
