@@ -70,6 +70,7 @@ before_build:
   - ps: $yaml += "- next-version: $env:ofl_version"
   - ps: $yaml += Get-Content GitVersion.yml
   - ps: $yaml | Out-File "GitVersion.yml"
+  - more GitVersion.yml
 
 # Restore
   - dotnet restore
