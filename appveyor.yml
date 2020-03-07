@@ -63,7 +63,6 @@ before_build:
 # Patch version in directory.build.props
   - ps: $temp_path = (Get-Item src\directory.build.props).FullName
   - ps: $temp_dbp = [xml](Get-Content $temp_path)
-  - ps: $temp_json = Get-Content t-Item GitVersion.yml).FullName -raw | ConvertFrom-Json
 
 # Restore
   - dotnet restore
