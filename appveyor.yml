@@ -61,7 +61,6 @@ before_build:
   - ps: '$yaml += "next-version: $env:ofl_version"'
   - ps: $yaml += Get-Content GitVersion.yml
   - ps: $yaml | Out-File "GitVersion.yml"
-  - more GitVersion.yml
 
 # Restore
   - dotnet restore
@@ -85,7 +84,16 @@ test:
   assemblies:
     only:
       - '**\*.Tests.dll' 
- 
+
+#--------------------------------------------------
+# Artifacts
+#--------------------------------------------------
+artifacts:
+
+# NuGet
+  - name: NuGet
+    type: NuGetPackage
+
 #--------------------------------------------------
 # NuGet config
 #--------------------------------------------------
