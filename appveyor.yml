@@ -23,11 +23,10 @@ branches:
 skip_tags: true
 
 #--------------------------------------------------
-# Do not patch assembly info, gitversion will handle
-# this
+# Will be applied by AppVeyor after GitVersion
 #--------------------------------------------------
 assembly_info:
-  patch: false
+  patch: true
 
 #--------------------------------------------------
 # After cloning repository
