@@ -23,10 +23,9 @@ branches:
 skip_tags: true
 
 #--------------------------------------------------
-# Will be applied by AppVeyor after GitVersion
+# Build configuration
 #--------------------------------------------------
-assembly_info:
-  patch: true
+configuration: Release
 
 #--------------------------------------------------
 # After cloning repository
@@ -34,11 +33,6 @@ assembly_info:
 install:
   - git submodule init
   - git submodule update
-
-#--------------------------------------------------
-# Build configuration
-#--------------------------------------------------
-configuration: Release
 
 #--------------------------------------------------
 # Build command
