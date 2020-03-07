@@ -55,29 +55,22 @@ build:
 # Build hooks - before
 #--------------------------------------------------
 before_build:
-# Install Homebrew to install GitVersion
-  - sh: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  - sh: test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-  - sh: test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-  - sh: test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-  - sh: echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-  - sh: brew install gitversion
-
-# Install yq for parsing yaml.
-  - sh: sudo add-apt-repository ppa:rmescandon/yq
-  - sh: sudo apt update
-  - sh: sudo apt install yq -y
+# Install module for parsing yaml in powershell
+  - ps: Install-Module powershell-yaml
 
 # Patch version from directory.build.props into GitVersion.yml
   - ps: $temp_path = (Get-Item src\directory.build.props).FullName
   - ps: $temp_dbp = [xml](Get-Content $temp_path)
+
   - ps: $env:ofl_version = $temp_dbp.Project.PropertyGroup.Version
   - ps: Write-Host "Version to feed to GitVersion.yml - $env:ofl_version"
+
   - sh: yq w -i GitVersion.yml next-version $ofl_version
   - ps: Get-Content -Path GitVersion.yml
 
 # Restore
   - dotnet restore
+
 # Run gitversion
   - ps: gitversion /l console /output buildserver /updateAssemblyInfo
   - ps: Exit-AppveyorBuild
