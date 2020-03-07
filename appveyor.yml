@@ -69,6 +69,9 @@ before_build:
   - ps: $yaml = Get-Content GitVersion.yml | ConvertFrom-Yaml 
   - ps: $yaml[0]["next-version"] = $env:ofl_version
   - ps: $yaml | Set-Content -Path GitVersion.yml
+  - ps: $yaml
+  - ps: $yaml = Get-Content GitVersion.yml
+  - ps: Write-Host $yaml
 
 # Restore
   - dotnet restore
