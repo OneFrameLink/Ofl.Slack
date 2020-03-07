@@ -66,7 +66,7 @@ before_build:
   - ps: Write-Host "Version to feed to GitVersion.yml - $env:ofl_version"
 
   - ps: Import-Module powershell-yaml
-  - ps: $yaml = ConvertFrom-Yaml | Get-Content GitVersion.yml
+  - ps: $yaml = Get-Content GitVersion.yml | ConvertFrom-Yaml 
   - ps: $yaml[0]["next-version"] = $env:ofl_version
   - ps: $yaml | Set-Content -Path GitVersion.yml
 
