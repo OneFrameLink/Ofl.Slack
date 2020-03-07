@@ -64,8 +64,6 @@ before_build:
   - ps: $temp_path = (Get-Item src\directory.build.props).FullName
   - ps: $temp_dbp = [xml](Get-Content $temp_path)
   - ps: $temp_json = Get-Content t-Item GitVersion.yml).FullName -raw | ConvertFrom-Json
-$a.update | % {if($_.name -eq 'test1'){$_.version=3.0}}
-$a | ConvertTo-Json -depth 32| set-content 'D:\temp\mytestBis.json'
 
 # Restore
   - dotnet restore
