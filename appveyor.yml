@@ -43,15 +43,6 @@ install:
 configuration: Release
 
 #--------------------------------------------------
-# Build command
-#--------------------------------------------------
-build:
-  # Publish symbols, as per: https://www.appveyor.com/docs/build-phase/#packaging-symbols
-  publish_nuget: false
-  publish_nuget_symbols: true
-  use_snupkg_format: true
-
-#--------------------------------------------------
 # Build hooks - before
 #--------------------------------------------------
 before_build:
@@ -77,7 +68,15 @@ before_build:
 
 # Run gitversion
   - ps: gitversion /l console /output buildserver /updateAssemblyInfo
-  - ps: Exit-AppveyorBuild
+
+#--------------------------------------------------
+# Build command
+#--------------------------------------------------
+build:
+  # Publish symbols, as per: https://www.appveyor.com/docs/build-phase/#packaging-symbols
+  publish_nuget: true
+  publish_nuget_symbols: true
+  use_snupkg_format: true
     
 #--------------------------------------------------
 # Testing
