@@ -13,10 +13,9 @@ environment:
     secure: yAZjzbVhtfeKof5pGJ/N65IjSffBIJoX5MZIpqbtHkc=
 
 #--------------------------------------------------
-# Branch whitelist
+# Branch whitelist - master only
 #--------------------------------------------------
 branches:
-  # Whitelist
   only:
     - master
 
@@ -43,6 +42,15 @@ install:
 configuration: Release
 
 #--------------------------------------------------
+# Build command
+#--------------------------------------------------
+build:
+  # Publish symbols, as per: https://www.appveyor.com/docs/build-phase/#packaging-symbols
+  publish_nuget: true
+  publish_nuget_symbols: true
+  use_snupkg_format: true
+
+#--------------------------------------------------
 # Build hooks - before
 #--------------------------------------------------
 before_build:
@@ -67,15 +75,6 @@ before_build:
 
 # Run gitversion
   - ps: gitversion /l console /output buildserver /updateAssemblyInfo
-
-#--------------------------------------------------
-# Build command
-#--------------------------------------------------
-build:
-  # Publish symbols, as per: https://www.appveyor.com/docs/build-phase/#packaging-symbols
-  publish_nuget: true
-  publish_nuget_symbols: true
-  use_snupkg_format: true
     
 #--------------------------------------------------
 # Testing
@@ -86,14 +85,8 @@ test:
       - '**\*.Tests.dll' 
 
 #--------------------------------------------------
-# Artifacts
+# TODO: Artifacts
 #--------------------------------------------------
-artifacts:
-
-# NuGet
-  - path: NuGet
-    name: NuGet
-    type: NuGetPackage
 
 #--------------------------------------------------
 # NuGet config
