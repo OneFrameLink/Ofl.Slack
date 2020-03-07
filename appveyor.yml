@@ -56,7 +56,7 @@ build:
 #--------------------------------------------------
 before_build:
 # Install GitVersion
-  - sh: choco install GitVersion.Portable
+  - sh: brew install gitversion
 
 # Install yq for parsing yaml.
   - sh: sudo add-apt-repository ppa:rmescandon/yq
