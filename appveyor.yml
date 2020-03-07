@@ -66,8 +66,9 @@ before_build:
 # Restore
   - dotnet restore
 
-# Run gitversion
+# Run gitversion and set appveyor build number back
   - ps: gitversion /l console /output buildserver
+  - ps: $env:APPVEYOR_BUILD_VERSION = $env:GitVersion_FullSemVer
     
 #--------------------------------------------------
 # Testing
