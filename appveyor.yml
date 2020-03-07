@@ -66,6 +66,7 @@ before_build:
   - ps: $env:ofl_version = $temp_dbp.Project.PropertyGroup.Version
   - ps: Write-Host "Version to feed to GitVersion.yml - $env:ofl_version"
   - sh: yq w -i GitVersion.yml next-version $ofl_version
+  - ps: Get-Content -Path $temp_path
 
 # Restore
   - dotnet restore
