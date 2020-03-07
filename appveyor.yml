@@ -56,7 +56,7 @@ build:
 #--------------------------------------------------
 before_build:
 # Install module for parsing yaml in powershell
-  - ps: Install-Module powershell-yaml
+  - ps: Install-Module powershell-yaml -Scope CurrentUser -Force
 
 # Patch version from directory.build.props into GitVersion.yml
   - ps: $temp_path = (Get-Item src\directory.build.props).FullName
