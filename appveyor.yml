@@ -63,7 +63,7 @@ before_build:
 # Patch version from directory.build.props into GitVersion.yml
   - ps: $temp_path = (Get-Item src\directory.build.props).FullName
   - ps: $temp_dbp = [xml](Get-Content $temp_path)
-  - ps: $env:ofl_version = $temp_dbp.PropertyGroup.Version
+  - ps: $env:ofl_version = $temp_dbp.Project.PropertyGroup.Version
   - ps: Write-Host "Version to feed to GitVersion.yml - $env:ofl_version"
   - sh: yq w -i GitVersion.yml next-version $ofl_version
 
