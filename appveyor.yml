@@ -11,6 +11,14 @@ environment:
     secure: PNVFwcCuNr+X7SffsiwiVsa/JzVyZqwNJUbeve+Or/EjOwZxbd1CUC0K/5az9jsT    
   GIT_CONFIG_USER_EMAIL:
     secure: yAZjzbVhtfeKof5pGJ/N65IjSffBIJoX5MZIpqbtHkc=
+  
+#--------------------------------------------------
+# Project-specific environment variables
+#--------------------------------------------------
+  SLACK__TOKEN:
+    secure: FpApXpenPAiXdeQs6yfBJiu5LFkBTiAuJd9ReZn68nKWoQTVczb4uHPBBAfW/SLhQcBDViw7pvIKPiTc5ovqdQ==
+  SLACK__CHANNEL:
+    secure: ggedAAYF7svY5Y2uenklSQ==
 
 #--------------------------------------------------
 # Branch whitelist - master only
