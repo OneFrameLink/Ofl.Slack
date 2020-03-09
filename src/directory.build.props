@@ -8,7 +8,7 @@
     <PackageProjectUrl>https://github.com/OneFrameLink/Ofl.Slack</PackageProjectUrl>
     <RepositoryUrl>https://github.com/OneFrameLink/Ofl.Slack.git</RepositoryUrl>
     <RootNamespace>Ofl.Slack</RootNamespace>
-    <PackageTags>slack incoming-webhooks</PackageTags>
-    <Version>0.3.0</Version>
+    <PackageTags>slack web-api</PackageTags>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 </Project>

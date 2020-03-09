@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ofl.Slack.Payloads
+namespace Ofl.Slack.BlockKit.Blocks
 {
     public abstract class Block
     {

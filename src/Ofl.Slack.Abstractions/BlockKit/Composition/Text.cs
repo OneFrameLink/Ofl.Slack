@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ofl.Slack.Payloads.Composition
+namespace Ofl.Slack.BlockKit.Composition
 {
     public class TextObject
     {

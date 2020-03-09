@@ -1,4 +1,4 @@
-﻿namespace Ofl.Slack.Payloads
+﻿namespace Ofl.Slack.BlockKit.Blocks
 {
     public class Divider : Block
     {

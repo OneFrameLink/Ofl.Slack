@@ -1,17 +1,16 @@
-﻿using Ofl.Slack.Payloads;
+﻿using Ofl.Slack.BlockKit.Blocks;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 
-namespace Ofl.Slack
+namespace Ofl.Slack.Messaging.Payload
 {
-    public class Message
+    public class MessagePayload
     {
         #region Constructor
 
-        public Message(
+        public MessagePayload(
             string? text = null,
             IEnumerable<Block>? blocks = null,
             string? threadTs = null,

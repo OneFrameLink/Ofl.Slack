@@ -6,21 +6,21 @@ using Xunit;
 
 namespace Ofl.Slack.Tests
 {
-    public class SlackClientTests : IClassFixture<SlackClientTestsFixture>
+    public class WebApiTests : IClassFixture<WebApiTestsFixture>
     {
         #region Constructor
 
-        public SlackClientTests(SlackClientTestsFixture fixture)
+        public WebApiTests(WebApiTestsFixture fixture)
         {
             // Validate parameters.
-            _slackClientTestsFixture = fixture ?? throw new ArgumentNullException(nameof(fixture));
+            _fixture = fixture ?? throw new ArgumentNullException(nameof(fixture));
         }
 
         #endregion
 
         #region Instance, read-only state
 
-        private readonly SlackClientTestsFixture _slackClientTestsFixture;
+        private readonly WebApiTestsFixture _fixture;
 
         #endregion
 
@@ -30,12 +30,12 @@ namespace Ofl.Slack.Tests
         public async Task Test_PostMessageAsync()
         {
             // Create the slack client.
-            IWebApi client = _slackClientTestsFixture.CreateWebApi();
+            IWebApi client = _fixture.CreateWebApi();
 
             // Post a message.
             var response = await client.Chat.PostMessageAsync(
                 new PostMessageRequest(
-                    _slackClientTestsFixture.Channel,
+                    _fixture.Channel,
                     $"Test: {nameof(Test_PostMessageAsync)} executed at {DateTimeOffset.Now}."
                 )
             )

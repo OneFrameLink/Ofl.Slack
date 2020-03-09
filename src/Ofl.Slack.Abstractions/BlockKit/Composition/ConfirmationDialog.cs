@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ofl.Slack.Payloads.Composition
+namespace Ofl.Slack.BlockKit.Composition
 {
     public class ConfirmationDialog
     {

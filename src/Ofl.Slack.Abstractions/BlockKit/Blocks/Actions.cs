@@ -1,18 +1,18 @@
-﻿using Ofl.Slack.Payloads.BlockElements;
+﻿using Ofl.Slack.BlockKit.BlockElements;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Ofl.Slack.Payloads.Blocks
+namespace Ofl.Slack.BlockKit.Blocks
 {
-    public class Context : Block
+    public class Actions : Block
     {
         #region Constructor
 
-        public Context(
+        public Actions(
             IEnumerable<BlockElement> elements,
-            string? blockId = null
+            string? blockId
         ) : base(blockId)
         {
             // Validate parameters.
@@ -25,7 +25,7 @@ namespace Ofl.Slack.Payloads.Blocks
 
         #region Instance, read-only state
 
-        public override string Type => "context";
+        public override string Type => "actions";
 
         public IReadOnlyCollection<BlockElement> Elements { get; }
 

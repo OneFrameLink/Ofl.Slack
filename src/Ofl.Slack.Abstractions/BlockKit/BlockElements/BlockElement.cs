@@ -1,4 +1,4 @@
-﻿namespace Ofl.Slack.Payloads.BlockElements
+﻿namespace Ofl.Slack.BlockKit.BlockElements
 {
     public abstract class BlockElement
     {

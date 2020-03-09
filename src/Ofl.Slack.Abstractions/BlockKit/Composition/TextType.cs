@@ -1,4 +1,4 @@
-﻿namespace Ofl.Slack.Payloads.Composition
+﻿namespace Ofl.Slack.BlockKit.Composition
 {
     public enum TextType
     {

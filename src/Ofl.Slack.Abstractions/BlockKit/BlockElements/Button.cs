@@ -1,7 +1,7 @@
-﻿using Ofl.Slack.Payloads.Composition;
+﻿using Ofl.Slack.BlockKit.Composition;
 using System;
 
-namespace Ofl.Slack.Payloads.BlockElements
+namespace Ofl.Slack.BlockKit.BlockElements
 {
     public class Button : ActionElement
     {

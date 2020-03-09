@@ -1,7 +1,8 @@
-﻿using Ofl.Slack.Payloads.Composition;
+﻿using Ofl.Slack.BlockKit.Blocks;
+using Ofl.Slack.BlockKit.Composition;
 using System;
 
-namespace Ofl.Slack.Payloads
+namespace Ofl.BlockKit.Payloads
 {
     public class Image : Block
     {

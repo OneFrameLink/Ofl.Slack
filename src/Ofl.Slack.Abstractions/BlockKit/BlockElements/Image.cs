@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ofl.Slack.Payloads.BlockElements
+namespace Ofl.Slack.BlockKit.BlockElements
 {
     public class Image : BlockElement
     {

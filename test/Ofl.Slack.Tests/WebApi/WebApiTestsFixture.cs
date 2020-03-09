@@ -5,11 +5,11 @@ using Ofl.Slack.WebApi;
 
 namespace Ofl.Slack.Tests
 {
-    public class SlackClientTestsFixture : IDisposable
+    public class WebApiTestsFixture : IDisposable
     {
         #region Constructor
 
-        public SlackClientTestsFixture()
+        public WebApiTestsFixture()
         {
             // Assign values.
             _serviceProvider = CreateServiceProvider();
@@ -71,7 +71,7 @@ namespace Ofl.Slack.Tests
             using var _ = _serviceProvider;
         }
 
-        ~SlackClientTestsFixture() => Dispose(false);
+        ~WebApiTestsFixture() => Dispose(false);
 
         #endregion
     }

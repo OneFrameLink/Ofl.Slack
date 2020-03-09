@@ -47,7 +47,7 @@ install:
 #--------------------------------------------------
 build:
   # Publish symbols, as per: https://www.appveyor.com/docs/build-phase/#packaging-symbols
-  publish_nuget: false
+  publish_nuget: true
   publish_nuget_symbols: true
   use_snupkg_format: true
 

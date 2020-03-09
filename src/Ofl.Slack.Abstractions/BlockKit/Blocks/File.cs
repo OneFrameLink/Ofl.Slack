@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ofl.Slack.Payloads.Blocks
+namespace Ofl.Slack.BlockKit.Blocks
 {
     public class File : Block
     {
