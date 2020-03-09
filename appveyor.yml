@@ -77,6 +77,10 @@ before_build:
 # Run gitversion and set appveyor build number back
   - ps: gitversion /l console /output buildserver
   - ps: $env:APPVEYOR_BUILD_VERSION = $env:GitVersion_FullSemVer
+  
+ # Save back to the file.
+  - ps: $temp_dbp.Project.PropertyGroup.Version = $env:APPVEYOR_BUILD_VERSION
+  - ps: $temp_dbp.Save($temp_path)
     
 #--------------------------------------------------
 # Testing
