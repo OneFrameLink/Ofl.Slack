@@ -9,6 +9,6 @@
     <RepositoryUrl>https://github.com/OneFrameLink/Ofl.Slack.git</RepositoryUrl>
     <RootNamespace>Ofl.Slack</RootNamespace>
     <PackageTags>slack web-api</PackageTags>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 </Project>
