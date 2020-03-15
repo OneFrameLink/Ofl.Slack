@@ -75,6 +75,7 @@ namespace Ofl.Slack.WebApi.Methods.Chat
         public bool? LinkNames { get; }
 
         public bool? Mrkdwn { get; }
+
         public string? Parse { get; }
 
         public bool? ReplyBroadcast { get; }

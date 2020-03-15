@@ -13,7 +13,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.2" />
-    <PackageReference Include="Ofl.Net.Http.ApiClient.Json" Version="3.0.11" />
+    <PackageReference Include="Ofl.Net.Http.ApiClient.Json" Version="3.0.13" />
     <PackageReference Include="Ofl.Text.Json" Version="1.3.6" />
   </ItemGroup>
 
