@@ -35,6 +35,10 @@ namespace Ofl.Slack.Tests
 
             // It is ok.
             Assert.True(response.Ok, $"The call to {nameof(Client.Files.UploadAsync)} returned an error: {response.Error}");
+
+            // Assert value equality.
+            Assert.Equal(request.Filename, response.File.Name);
+            Assert.Equal(request.Title, response.File.Title);
         }
 
         #endregion
