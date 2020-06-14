@@ -6,21 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ofl.Slack.WebApi.Methods.Chat
 {
-    internal class ChatMethods : IChatMethods
+    internal class ChatMethods : Methods, IChatMethods
     {
         #region Constructor
 
-        public ChatMethods(WebApi webApi)
-        {
-            // Validate parameters.
-            _webApi = webApi;
-        }
-
-        #endregion
-
-        #region Instance, read-only state
-
-        private readonly WebApi _webApi;
+        public ChatMethods(WebApi webApi) : base(webApi)
+        { }
 
         #endregion
 
@@ -36,7 +27,7 @@ namespace Ofl.Slack.WebApi.Methods.Chat
             if (request == null) throw new ArgumentNullException(nameof(request));
 
             // Post the request.
-            return _webApi.PostToWebApiAsync<PostMessageRequest, PostMessageResponse>(
+            return WebApi.PostToWebApiAsync<PostMessageRequest, PostMessageResponse>(
                 "chat.postMessage", 
                 request, 
                 cancellationToken

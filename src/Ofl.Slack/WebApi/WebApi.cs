@@ -2,6 +2,7 @@
 using Ofl.Slack.BlockKit.Blocks;
 using Ofl.Slack.Serialization.Text.Json;
 using Ofl.Slack.WebApi.Methods.Chat;
+using Ofl.Slack.WebApi.Methods.Files;
 using Ofl.Text.Json;
 using System.Net.Http;
 using System.Text.Json;
@@ -19,6 +20,7 @@ namespace Ofl.Slack.WebApi
         {
             // Assign values.
             Chat = new ChatMethods(this);
+            Files = new FilesMethods(this);
         }
 
         static WebApi()
@@ -41,9 +43,15 @@ namespace Ofl.Slack.WebApi
 
         #region Read-only state
 
-        private static readonly JsonSerializerOptions JsonSerializerOptions;
+        internal static readonly JsonSerializerOptions JsonSerializerOptions;
 
         public IChatMethods Chat { get; }
+
+        public IFilesMethods Files { get; }
+
+        internal new HttpClient HttpClient => base.HttpClient;
+
+        internal static readonly string ApiUrlPrefix = "https://slack.com/api/";
 
         #endregion
 
@@ -52,7 +60,7 @@ namespace Ofl.Slack.WebApi
         protected override JsonSerializerOptions CreateJsonSerializerOptions() => JsonSerializerOptions;
 
         protected override ValueTask<string> FormatUrlAsync(string url, CancellationToken cancellationToken) =>
-            new ValueTask<string>("https://slack.com/api/" + url);
+            new ValueTask<string>(ApiUrlPrefix + url);
 
         #endregion
 
